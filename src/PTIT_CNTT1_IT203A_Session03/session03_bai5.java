@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class session03_bai5 {
 
-    // Xóa sách theo mã bookId, trả về số lượng sách mới
+    // Xóa bookId, trả về số lượng sách mới
     public static int deleteBook(int[] arr, int n, int bookId) {
         int k = -1;
         // k: lưu vị trí tìm thấy bookId

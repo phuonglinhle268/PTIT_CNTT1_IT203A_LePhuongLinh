@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class session03_bai2 {
     public static int searchBooks(String[] arr, String search){
         for (int i=0; i <arr.length; i++){
-            if (arr[i].equalsIgnoreCase(search)){   //Ss 2 chuỗi không phân biệt chữ hoa/thường.
+            if (arr[i].equalsIgnoreCase(search)){   //Ss 2 chuỗi
                 return i;
             }
         }
-        return -1;  // ko tìm thấy
+        return -1;
     }
 
     public static void main(String[] args) {

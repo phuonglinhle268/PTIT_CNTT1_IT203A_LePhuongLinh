@@ -9,7 +9,7 @@ public class session03_bai6 {
         int[] temp = new int[a.length + b.length];    // Mảng tạm temp chứa kqua gộp
         int k = 0;  // vị trí, số phần tử hợp lệ ghi vào temp
 
-        // Gộp khi cả hai mảng còn phần tử
+
         while (i < a.length && j < b.length) {
             // rỗng -> cho ptu đầu || !ptu ghi trc đó → cho vào
             // temp[k-1]: ptu vừa được thêm gần nhất
@@ -17,7 +17,7 @@ public class session03_bai6 {
                 if (k == 0 || temp[k - 1] != a[i]) {
                     temp[k++] = a[i];
                 }
-                i++;  // xử lí xong lấy ptu của a, tiếp
+                i++;
             } else if (a[i] > b[j]) {
                 if (k == 0 || temp[k - 1] != b[j]) {
                     temp[k++] = b[j];
