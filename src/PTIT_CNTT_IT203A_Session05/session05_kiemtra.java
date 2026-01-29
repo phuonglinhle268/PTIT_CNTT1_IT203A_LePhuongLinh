@@ -4,9 +4,9 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class session05_kiemtra {
-    static String[] studentList = new String[100];
-    static int size = 0;
-    static String checkStudentID = "^B\\d{7}$";
+    public static String[] studentList = new String[100];
+    public static int size = 0;
+    public static String checkStudentID = "^B\\d{7}$";
 
 
     public static void main(String[] args) {
@@ -63,6 +63,7 @@ public class session05_kiemtra {
         }
     }
 
+    //thêm
     public static void addStudent(Scanner sc){
         if (size >= 100) {
             System.out.println("Danh sách đã đầy");
@@ -85,6 +86,7 @@ public class session05_kiemtra {
         System.out.println("Thêm mã sinh viên thành công");
     }
 
+    //cập nhập
     public static void updateStudent(Scanner sc){
         System.out.print("Nhập vị trí cần sửa: ");
 
@@ -108,7 +110,8 @@ public class session05_kiemtra {
         System.out.println("Cập nhật thành công");
     }
 
-    static void deleteStudent(Scanner sc) {
+    // xóa
+    public static void deleteStudent(Scanner sc) {
         System.out.print("Nhập MSSV cần xóa: ");
         String target = sc.nextLine();
 
