@@ -22,20 +22,22 @@ public class session05_kiemtra {
             System.out.println("6. Thoát");
 
             choice = sc.nextInt();
+            sc.nextLine();
             switch (choice){
                 case 1:
                     displayStudent();
                     break;
                 case 2:
-                    addStudent();
+                    addStudent(sc);
                     break;
                 case 3:
-                    updateStudent();
+                    updateStudent(sc);
+                    break;
                 case 4:
-                    //deleteStudent();
+                    deleteStudent(sc);
                     break;
                 case 5:
-                    searchStudent();
+                    searchStudent(sc);
                     break;
                 case 6:
                     System.out.println("Thoát");
@@ -50,13 +52,23 @@ public class session05_kiemtra {
 
     // hiện danh sách
     public static void displayStudent(){
+        if (size == 0) {
+            System.out.println("Chưa có sinh viên");
+            return;
+        }
+
         System.out.println("Danh sách sinh viên: ");
         for (int i=0; i<size; i++){
-            System.out.println(i+1);
+            System.out.println((i + 1) + ". " + studentList[i]);
         }
     }
 
     public static void addStudent(Scanner sc){
+        if (size >= 100) {
+            System.out.println("Danh sách đã đầy");
+            return;
+        }
+
         String studentID;
         while(true){
             System.out.println("Nhập mã sinh viên mới: ");
@@ -77,26 +89,51 @@ public class session05_kiemtra {
         System.out.print("Nhập vị trí cần sửa: ");
 
         int index = sc.nextInt();
+        sc.nextLine();
         if (index < 1 || index > size){
             System.out.println("Vị trí không hợp lệ");
             return;
         }
         String newStudentID;
-        System.out.println("Nhập mã sinh viên mới: ");
-        newStudentID = sc.nextLine();
-
-        if (Pattern.matches(checkStudentID, newStudentID)){
-
-            return;
-        } else{
-            System.out.println("Mã sinh viên không hợp lệ");
+        while (true) {
+            System.out.print("Nhập MSSV mới: ");
+            newStudentID = sc.nextLine();
+        if (Pattern.matches(checkStudentID, newStudentID)) {
+            break;
+        } else {
+            System.out.println("MSSV không hợp lệ");
         }
-        studentList[size - 1] = newStudentID;
-        size--;
+    }
+        studentList[index - 1] = newStudentID;
         System.out.println("Cập nhật thành công");
     }
 
-    public static void searchStudent(){
+    static void deleteStudent(Scanner sc) {
+        System.out.print("Nhập MSSV cần xóa: ");
+        String target = sc.nextLine();
 
+        int index = -1;
+        for (int i = 0; i < size; i++) {
+            if (studentList[i].equalsIgnoreCase(target)) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) {
+            System.out.println("Không tìm thấy MSSV cần xóa");
+            return;
+        }
+        for (int i = index; i < size - 1; i++) {
+            studentList[i] = studentList[i + 1];
+        }
+        studentList[size - 1] = null;
+        size--;
+        System.out.println("Xóa thành công");
     }
+
+    public static void searchStudent(Scanner sc){
+        System.out.print("Nhập chuỗi cần tìm: ");
+        String keyword = sc.nextLine().toLowerCase();
+    }
+
 }
