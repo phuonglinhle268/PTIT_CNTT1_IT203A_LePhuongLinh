@@ -20,6 +20,7 @@ public class session05_kiemtra {
             System.out.println("4. Xóa");
             System.out.println("5. Tìm kiếm");
             System.out.println("6. Thoát");
+            System.out.print("Chọn: ");
 
             choice = sc.nextInt();
             sc.nextLine();
@@ -72,7 +73,7 @@ public class session05_kiemtra {
 
         String studentID;
         while(true){
-            System.out.println("Nhập mã sinh viên mới: ");
+            System.out.print("Nhập mã sinh viên mới: ");
             studentID = sc.nextLine();
 
             if (Pattern.matches(checkStudentID, studentID)){
@@ -98,7 +99,7 @@ public class session05_kiemtra {
         }
         String newStudentID;
         while (true) {
-            System.out.print("Nhập MSSV mới: ");
+            System.out.print("Nhập mã sinh viên mới: ");
             newStudentID = sc.nextLine();
         if (Pattern.matches(checkStudentID, newStudentID)) {
             break;
@@ -112,7 +113,7 @@ public class session05_kiemtra {
 
     // xóa
     public static void deleteStudent(Scanner sc) {
-        System.out.print("Nhập MSSV cần xóa: ");
+        System.out.print("Nhập mã sinh viên cần xóa: ");
         String target = sc.nextLine();
 
         int index = -1;
@@ -123,7 +124,7 @@ public class session05_kiemtra {
             }
         }
         if (index == -1) {
-            System.out.println("Không tìm thấy MSSV cần xóa");
+            System.out.println("Không tìm thấy mã sinh viên cần xóa");
             return;
         }
         for (int i = index; i < size - 1; i++) {
@@ -134,9 +135,22 @@ public class session05_kiemtra {
         System.out.println("Xóa thành công");
     }
 
+    // tim kiem
     public static void searchStudent(Scanner sc){
         System.out.print("Nhập chuỗi cần tìm: ");
         String keyword = sc.nextLine().toLowerCase();
+
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (studentList[i].toLowerCase().contains(keyword)) {
+                System.out.println((i + 1) + ". " + studentList[i]);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Không tìm thấy mã sinh viên phù hợp");
+        }
     }
 
 }

@@ -14,7 +14,7 @@ public class session05_baitap {
             System.out.println("3. Valid Palindrome");
             System.out.println("4. Reverse Words");
             System.out.println("5. Happy Number");
-            System.out.println("0. Thoát");
+            System.out.println("6. Thoát");
             System.out.print("Chọn: ");
 
             choice = sc.nextInt();
@@ -35,7 +35,7 @@ public class session05_baitap {
                 case 5:
                     happyNumber(sc);
                     break;
-                case 0:
+                case 6:
                     System.out.println("Thoát chương trình.");
                     break;
                 default:
@@ -55,8 +55,7 @@ public class session05_baitap {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-
-        System.out.print("Nhập target: ");
+        System.out.print("Nhập số nguyên target: ");
         int target = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
@@ -67,7 +66,6 @@ public class session05_baitap {
                 }
             }
         }
-
         System.out.println("Không tìm thấy.");
     }
 
@@ -105,7 +103,7 @@ public class session05_baitap {
 
     // FR3
     static void validPalindrome(Scanner sc) {
-        sc.nextLine(); // clear buffer
+        sc.nextLine();
         System.out.print("Nhập chuỗi: ");
         String s = sc.nextLine();
 
@@ -114,19 +112,19 @@ public class session05_baitap {
         int left = 0, right = s.length() - 1;
         while (left < right) {
             if (s.charAt(left) != s.charAt(right)) {
-                System.out.println("False");
+                System.out.println("Không phải chuỗi đối xứng");
                 return;
             }
             left++;
             right--;
         }
 
-        System.out.println("True");
+        System.out.println("Đây là chuỗi đối xứng");
     }
 
     // FR4
     static void reverseWords(Scanner sc) {
-        sc.nextLine(); // clear buffer
+        sc.nextLine();
         System.out.print("Nhập chuỗi: ");
         String s = sc.nextLine();
 
@@ -134,35 +132,32 @@ public class session05_baitap {
 
         for (int i = words.length - 1; i >= 0; i--) {
             System.out.print(words[i]);
-            if (i != 0) System.out.print(" ");
+            if (i != 0) {
+                System.out.print(" ");
+            }
         }
         System.out.println();
     }
 
     // FR5
     static void happyNumber(Scanner sc) {
-        System.out.print("Nhập n: ");
+        System.out.print("Nhập số nguyên dương n: ");
         int n = sc.nextInt();
 
-        Set<Integer> set = new HashSet<>();
-
-        while (n != 1 && !set.contains(n)) {
-            set.add(n);
+        while (n != 1 && n != 4) {
             int sum = 0;
-
             while (n > 0) {
                 int d = n % 10;
                 sum += d * d;
                 n /= 10;
             }
-
             n = sum;
         }
-
         if (n == 1) {
-            System.out.println("True");
+            System.out.println("Đây là số hạnh phúc");
         } else {
-            System.out.println("False");
+            System.out.println("Không phải số hạnh phúc");
         }
     }
+
 }
