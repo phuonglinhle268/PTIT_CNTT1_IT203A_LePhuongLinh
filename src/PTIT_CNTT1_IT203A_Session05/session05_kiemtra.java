@@ -1,4 +1,4 @@
-package PTIT_CNTT_IT203A_Session05;
+package PTIT_CNTT1_IT203A_Session05;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
