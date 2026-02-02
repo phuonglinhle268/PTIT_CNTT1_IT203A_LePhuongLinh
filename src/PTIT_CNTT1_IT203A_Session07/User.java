@@ -1,0 +1,20 @@
+package PTIT_CNTT1_IT203A_Session07;
+
+
+// bài 6
+public class User {
+    public final int id;
+    public String username;
+    public String password;
+
+    public User(int id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
+    @Override
+    public String toString(){
+        return "User[id=" + id + ", name=" + username + "]";
+    }
+}
