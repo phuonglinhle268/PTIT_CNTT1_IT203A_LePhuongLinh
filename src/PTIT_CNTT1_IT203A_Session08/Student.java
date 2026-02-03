@@ -5,12 +5,16 @@ public class Student {
     private String hoTen;
     private int tuoi;
     private String gioiTinh;
+
     private double diemToan;
     private double diemLy;
     private double diemHoa;
 
     private double diemTB;
     private String xepLoai;
+
+    public Student() {
+    }
 
     public Student(String maSV, String hoTen, int tuoi, String gioiTinh,
                    double diemToan, double diemLy, double diemHoa) {
@@ -21,13 +25,37 @@ public class Student {
         this.diemToan = diemToan;
         this.diemLy = diemLy;
         this.diemHoa = diemHoa;
-
-        tinhDiemTB();
-        xepLoai();
+        tinhDiemVaXepLoai();
     }
 
+    // ===== TINH DIEM TRUNG BINH & XEP LOAI (giu nguyen dieu kien) =====
+    public void tinhDiemVaXepLoai() {
+        this.diemTB = (diemToan + diemLy + diemHoa) / 3;
+
+        if (diemTB >= 8.0 && diemToan >= 6.5 && diemLy >= 6.5 && diemHoa >= 6.5) {
+            this.xepLoai = "Gioi";
+        } else if (diemTB >= 6.5 && diemToan >= 5.0 && diemLy >= 5.0 && diemHoa >= 5.0) {
+            this.xepLoai = "Kha";
+        } else if (diemTB >= 5.0 && diemToan >= 3.5 && diemLy >= 3.5 && diemHoa >= 3.5) {
+            this.xepLoai = "Trung binh";
+        } else {
+            this.xepLoai = "Yeu";
+        }
+    }
+
+    // ===== hien thi 1 dong dang bang =====
+    public void studentInfo() {
+        System.out.printf("%-10s %-17s %-7s %-10s %-15.2f %-15s\n",
+                maSV, hoTen, tuoi, gioiTinh, diemTB, xepLoai);
+    }
+
+    // ===== Getter/Setter =====
     public String getMaSV() {
         return maSV;
+    }
+
+    public void setMaSV(String maSV) {
+        this.maSV = maSV;
     }
 
     public String getHoTen() {
@@ -44,6 +72,14 @@ public class Student {
 
     public void setTuoi(int tuoi) {
         this.tuoi = tuoi;
+    }
+
+    public String getGioiTinh() {
+        return gioiTinh;
+    }
+
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
     }
 
     public double getDiemToan() {
@@ -76,25 +112,5 @@ public class Student {
 
     public String getXepLoai() {
         return xepLoai;
-    }
-
-    public void tinhDiemTB() {
-        diemTB = (diemToan + diemLy + diemHoa) / 3;
-    }
-
-    public void xepLoai() {
-        if (diemTB >= 8 && diemToan >= 6.5 && diemLy >= 6.5 && diemHoa >= 6.5)
-            xepLoai = "Giỏi";
-        else if (diemTB >= 6.5 && diemToan >= 5 && diemLy >= 5 && diemHoa >= 5)
-            xepLoai = "Khá";
-        else if (diemTB >= 5 && diemToan >= 3.5 && diemLy >= 3.5 && diemHoa >= 3.5)
-            xepLoai = "Trung bình";
-        else
-            xepLoai = "Yếu";
-    }
-
-    public void studentInfo() {
-        System.out.printf("%-10s %-17s %-7s %-10s %-15.2f %-15s\n",
-                maSV, hoTen, tuoi, gioiTinh, diemTB, xepLoai);
     }
 }
