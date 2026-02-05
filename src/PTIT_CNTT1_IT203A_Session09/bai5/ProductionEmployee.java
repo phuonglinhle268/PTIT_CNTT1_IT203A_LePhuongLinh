@@ -1,0 +1,17 @@
+package PTIT_CNTT1_IT203A_Session09.bai5;
+
+public class ProductionEmployee extends Employee{
+    private int productCount;
+    private double pricePerProduct;
+
+    public ProductionEmployee(String name, int productCount, double pricePerProduct) {
+        super(name);
+        this.productCount = productCount;
+        this.pricePerProduct = pricePerProduct;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return productCount * pricePerProduct;
+    }
+}
