@@ -3,10 +3,10 @@ package PTIT_CNTT1_IT203A_Session09.Demo;
 import java.util.Scanner;
 
 public class Animal {
-    protected String animalName;
-    protected int numberOfLegs;
-    protected String furColor;
-    protected double averageLifeExpectancy;
+    private String animalName;
+    private int numberOfLegs;
+    private String furColor;
+    private double averageLifeExpectancy;
 
     public Animal() {
     }
