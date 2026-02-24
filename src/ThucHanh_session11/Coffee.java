@@ -17,7 +17,7 @@ public class Coffee extends Drink {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println(hasMilk ? "Có sữa" : "Đen đá");
+        System.out.println( hasMilk ? "Có sữa" : "Đen đá");
     }
 }
 

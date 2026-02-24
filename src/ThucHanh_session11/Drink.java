@@ -16,7 +16,7 @@ public abstract class Drink {
     public void displayInfo() {
         System.out.println("Mã: " + id);
         System.out.println("Tên: " + name);
-        System.out.println("Giá gốc: " + price);
+        System.out.println("Giá: " + price);
     }
 }
 
