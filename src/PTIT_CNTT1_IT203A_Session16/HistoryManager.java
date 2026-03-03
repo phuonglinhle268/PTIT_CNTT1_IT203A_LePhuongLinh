@@ -6,12 +6,10 @@ import java.util.Stack;
 class HistoryManager {
     Stack<HistoryActions> historyActions = new Stack<>();
 
-    // Sau khi tiep nhan moi/sua thong tin/Loai bo thu cung khoi danh sach
     void saveActionToHistory(HistoryActions action) {
         historyActions.push(action);
     }
 
-    // Hoan tac (Undo): Cho phep xem lai hoac lay ra hanh dong gan nhat vua thuc hien (theo nguyen tac Last-In-First-Out).
     HistoryActions undoAction(Scanner sc) {
         if (historyActions.isEmpty()) {
             System.out.println("Chua co hanh dong nao gan nhat");

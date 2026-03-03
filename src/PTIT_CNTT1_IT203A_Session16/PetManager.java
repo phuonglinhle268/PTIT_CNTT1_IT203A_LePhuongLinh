@@ -9,7 +9,7 @@ class PetManager extends Manager<Pet> {
 
     public void showPets() {
         if (list.isEmpty()) {
-            System.out.println("Danh sach thu cung trong");
+            System.out.println("Danh sach trong");
             return;
         }
         for (Pet pet : list) {

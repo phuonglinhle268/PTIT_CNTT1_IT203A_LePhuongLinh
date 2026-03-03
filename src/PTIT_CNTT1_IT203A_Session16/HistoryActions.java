@@ -24,6 +24,6 @@ class HistoryActions {
 
     @Override
     public String toString() {
-        return description + " | Thoi gian: " + timeAction;
+        return description + " | Thời gian: " + timeAction;
     }
 }

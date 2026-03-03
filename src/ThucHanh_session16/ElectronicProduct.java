@@ -1,24 +1,24 @@
 package ThucHanh_session16;
 
 public class ElectronicProduct extends Product {
-    int warrantyMonths = 0;
+    int warrantyMonths;
 
-    public ElectronicProduct(String id, String name, boolean price, int warrantyMonths) {
+    public ElectronicProduct(String id, String name, double price, int warrantyMonths) {
         super(id, name, price);
         this.warrantyMonths = warrantyMonths;
     }
 
     @Override
-    double calculateFinalPrice(){
+    public double calculateFinalPrice() {
         if (warrantyMonths > 12) {
-            return setPrice();
+            return price + 1000000;
         }
         return price;
     }
 
     @Override
-    void displayInfo(){
-        System.out.println("Tháng bảo hành: " + warrantyMonths + " tháng");
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Bảo hành: " + warrantyMonths + " tháng");
     }
-
 }

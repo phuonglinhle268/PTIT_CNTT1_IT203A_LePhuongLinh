@@ -23,9 +23,6 @@ class Pet {
 
     @Override
     public String toString() {
-        return "ID: " + id +
-                " | Ten: " + name +
-                " | Loai: " + species +
-                " | Tuoi: " + age;
+        return "ID: " + id + " | Ten: " + name + " | Loai: " + species + " | Tuoi: " + age;
     }
 }

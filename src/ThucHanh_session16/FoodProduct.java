@@ -1,20 +1,21 @@
 package ThucHanh_session16;
 
 public class FoodProduct extends Product {
-    int discountPercent = 0;
+    int discountPercent;
 
-    public FoodProduct(String id, String name, boolean price, int discountPercent) {
+    public FoodProduct(String id, String name, double price, int discountPercent) {
         super(id, name, price);
         this.discountPercent = discountPercent;
     }
 
     @Override
-    double calculateFinalPrice(){
+    public double calculateFinalPrice() {
         return price - (price * discountPercent / 100);
     }
 
     @Override
-    void displayInfo(){
-        System.out.println("Giảm giá: " + discountPercent);
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Giảm giá: " + discountPercent + "%");
     }
 }

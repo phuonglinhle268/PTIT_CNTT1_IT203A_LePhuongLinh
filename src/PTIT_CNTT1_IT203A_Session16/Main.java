@@ -164,7 +164,6 @@ public class Main {
         } while (choice != 0);
     }
 
-    // ===================== MENU QUAN LY DICH VU SPA =====================
     static void menuSpa() {
         int choice;
         do {

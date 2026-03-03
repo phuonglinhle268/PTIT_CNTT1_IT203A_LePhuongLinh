@@ -1,33 +1,33 @@
 package ThucHanh_session16;
 
 public abstract class Product {
-    private String id;
+    String id;
     private String name;
-    private boolean price;
+    double price;
 
-    public Product(String id, String name, boolean price) {
+    public Product(String id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 
-    public void setPrice(boolean price) {
-        this.price = price;
+    public double getPrice() {
+        return price;
     }
 
-    abstract double calculateFinalPrice();
+    public abstract double calculateFinalPrice();
 
-    void displayInfo(){
-        System.out.println("Mã sản phẩm: " + id);
-        System.out.println("Tên sản phẩm: " + name);
+    public void displayInfo() {
+        System.out.println("Mã: " + id);
+        System.out.println("Tên: " + name);
         System.out.println("Giá: " + price);
     }
 }

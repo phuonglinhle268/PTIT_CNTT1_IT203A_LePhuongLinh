@@ -2,8 +2,9 @@ package ThucHanh_session16;
 
 import java.util.List;
 
-public interface IRepository {
-    boolean removerById(String id);
-
-    //List<T> findAll()
+public interface IRepository<T> {
+    boolean add(T item);
+    boolean removeById(String id);
+    T findById(String id);
+    List<T> findAll();
 }
